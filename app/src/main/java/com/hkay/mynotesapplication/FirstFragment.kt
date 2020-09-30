@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -25,7 +24,6 @@ class FirstFragment : Fragment(), CustomAdapter.ClickListener {
     private var param1: String? = null
     private var param2: Boolean = false
     private var position: Int? = null
-    private var textArray: MutableList<String?>? = mutableListOf("Add your note here")
     private lateinit var noteViewModel: NotesViewModel
 
 
@@ -43,12 +41,10 @@ class FirstFragment : Fragment(), CustomAdapter.ClickListener {
             noteViewModel.insert(word)
         }
         if (param2) {
-            val word = param1?.let { NotesEntity(it) }
             if (word != null) {
                 noteViewModel.update(word)
             }
         } else {
-            val word = param1?.let { NotesEntity(it) }
             if (word != null) {
                 noteViewModel.insert(word)
             }
@@ -74,7 +70,7 @@ class FirstFragment : Fragment(), CustomAdapter.ClickListener {
         textView_first.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
         val adapter = CustomAdapter(this)
         textView_first.adapter = adapter
-        noteViewModel.allWords.observe(viewLifecycleOwner, Observer { words ->
+        noteViewModel.allWords.observe(viewLifecycleOwner, { words ->
             // Update the cached copy of the words in the adapter.
             words?.let {
                 adapter.setWords(it)

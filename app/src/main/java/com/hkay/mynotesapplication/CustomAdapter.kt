@@ -23,20 +23,18 @@ class CustomAdapter(private val clickListener: ClickListener): RecyclerView.Adap
         holder.itemView.setOnClickListener{
             clickListener.itemClickListener(current.textContent, position)
         }
-        holder.cardView.setOnLongClickListener(object :View.OnLongClickListener{
-            override fun onLongClick(v: View?): Boolean {
-                clickListener.itemLongClickListener(current.textContent, position)
-                return true
-            }
-        })
+        holder.cardView.setOnLongClickListener {
+            clickListener.itemLongClickListener(current.textContent, position)
+            true
+        }
         holder.itemView.isLongClickable = true
     }
 
     override fun getItemCount() = notes.size
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById<TextView>(R.id.mTVtextView)
-        val cardView: CardView = view.findViewById<CardView>(R.id.cardView)
+        val textView: TextView = view.findViewById(R.id.mTVtextView)
+        val cardView: CardView = view.findViewById(R.id.cardView)
     }
 
     internal fun setWords(notes: List<NotesEntity>) {

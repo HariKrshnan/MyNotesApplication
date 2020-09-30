@@ -13,11 +13,11 @@ class NotesRepository(private val wordDao: NotesDAO) {
     suspend fun insert(note: NotesEntity) {
         wordDao.insert(note)
     }
-    suspend fun update(note: NotesEntity) {
+    fun update(note: NotesEntity) {
         wordDao.update(note)
     }
 
-    suspend fun delete(note: NotesEntity) {
+    fun delete(note: NotesEntity) {
         wordDao.delete(note)
     }
 
