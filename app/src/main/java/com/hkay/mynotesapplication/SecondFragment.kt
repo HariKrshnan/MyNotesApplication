@@ -29,8 +29,6 @@ class SecondFragment : Fragment() {
             position = it.getInt(ARG_PARAM3)
         }
         param1?.let { Log.i("param1 = ", it) }
-        Toast.makeText(activity, "OnCreate called", Toast.LENGTH_SHORT).show()
-
     }
 
     override fun onCreateView(

@@ -21,3 +21,5 @@ u
 Eapp/src/main/java/com/hkay/mynotesapplication/room/NotesRepository.kt,f\4\f4e33f10ea83f41856ecba49042670a396bc7c4e
 n
 >app/src/main/java/com/hkay/mynotesapplication/room/NotesDAO.kt,5\6\56553b474e1b140b62db4b9671c9fcc4ce219d72
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e

@@ -35,7 +35,6 @@ class FirstFragment : Fragment(), CustomAdapter.ClickListener {
             param2 = it.getBoolean(ARG_PARAM2)
             position = it.getInt(ARG_PARAM3)
         }
-        Toast.makeText(activity, "OnActivityCreated", Toast.LENGTH_SHORT).show()
         val word = param1?.let { NotesEntity(it) }
         if (word != null) {
             noteViewModel.insert(word)
